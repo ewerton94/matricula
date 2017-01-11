@@ -1,0 +1,98 @@
+
+ <div ng-show="!disciplinas.length">   
+<h3>Situação</h3>
+    <h6>Sem Disciplinas!</h6>
+    <h6>Para se matricular em disciplinas acesse a <b class="link"><a  href="#!matricula">página de matrícula.</a></b></h6>  
+          
+</div>
+          
+           
+ <div ng-show="disciplinas.length">    
+ <h3>Situação:</h3>
+ <p>Segue abaixo as disciplinas solicitadas com sucesso:</p> 
+ 
+ 
+ 
+ <style>
+     @media screen and (max-width: 640px) {
+	table {
+		overflow-x: auto;
+		display: block;
+     
+</style>
+ 
+
+
+<script src="http://twitter.github.com/bootstrap/1.3.0/bootstrap-modal.js"></script>
+ 
+ 
+ 
+ <div >
+ 
+<table border="1" class="table table-striped" CELLSPACING=0 >
+<tr >
+    <td align=center colspan="6"><h4>Tabela de Horários</h4></td>
+</tr> 
+<tr>
+    <td>Horário</td>
+    <td>Segunda-feira</td>
+    <td>Terça-feira</td>
+    <td>Quarta-feira</td>
+    <td>Quinta-feira</td>
+    <td>Sexta-feira</td>
+</tr>
+
+<tr>
+    <td><h6>7:30 - 9:10</h6></td>
+    <td><h6 ng-repeat="atividade in atividades[0].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$} </h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[6].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[12].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[18].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[24].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+</tr>
+<tr>
+    <td><h6>9:20 - 11:00</h6></td>
+    <td><h6 ng-repeat="atividade in atividades[1].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[7].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[13].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[19].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[25].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>          
+</tr>
+<tr>
+    <td><h6>11:10 - 12:50</h6></td>
+    <td><h6 ng-repeat="atividade in atividades[2].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[8].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[14].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[20].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[26].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>          
+</tr>
+<tr>
+    <td><h6>13:30 - 15:10</h6></td>
+    <td><h6 ng-repeat="atividade in atividades[3].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[9].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[15].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[21].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[27].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>          
+</tr>
+<tr>
+    <td><h6>15:20 - 17:00</h6></td>
+    <td><h6 ng-repeat="atividade in atividades[4].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[10].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[16].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[22].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[28].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>          
+</tr>
+<tr>
+    <td><h6>17:10 - 18:50</h6></td>
+    <td><h6 ng-repeat="atividade in atividades[5].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[11].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[17].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[23].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>            
+    <td><h6 ng-repeat="atividade in atividades[29].disciplinas"><button type="button" ng-click="botao_deletar(atividade.id)" class="btn btn-danger btn-xs">x</button> {$atividade.nome$}</h6></td>          
+</tr>
+
+
+
+</table>
+</div>
+

@@ -1,0 +1,54 @@
+<!--
+               
+           
+            {% if user.is_authenticated %}
+            <div class="titulodescricaoinicio">Usuário Logado</div>
+            
+            <p>Você está logado como {{ user.username }}. Se você já fez sua inscrição e deseja alterá-la <b class="link"><a  href="">entre no sistema de inscrições</a></b>. Caso contrário, preencha o formulário abaixo.</p>
+            
+                   </div>
+            {% else %}-->
+                   
+            <h2>Alterar senha</h2>
+            
+<p>Preencha as campos abaixo para alteração de senha.</p>
+       
+
+       
+        <form class="form-horizontal" role="form" method="post">
+        <ul>
+               <div ng-repeat="error in errors"><li style="color:red;" >{$error$}</li></div>
+                </ul>
+       
+ 
+  <div class="form-group">
+    <label for="id_passwordatual" class="col-sm-2 control-label">Digite a senha atual</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="id_passwordatual" name="passwordatual" ng-model="dado.senha"  placeholder="Senha" required>
+    </div>
+            </div>
+      <div class="form-group">
+    <label for="id_passwordnovo1" class="col-sm-2 control-label">Digite a nova senha</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="id_passwordnovo1" name="password" ng-model="dado.senha1"  placeholder="Senha" required>
+    </div>
+  </div>  <div class="form-group">
+    <label for="id_passwordnovo2" class="col-sm-2 control-label">Confirme a nova senha</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="id_passwordnovo2" name="password" ng-model="dado.senha2"  placeholder="Senha" required>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success" ng-click="SendData()" >Alterar</button>
+    </div>
+  </div>
+          
+</form>
+       
+            
+              
+
+            
+              

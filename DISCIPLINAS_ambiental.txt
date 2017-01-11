@@ -1,0 +1,86 @@
+Cálculo 1 A;EAMB001 A;20;1
+Cálculo 1 B;EAMB001 B;30;1
+Introdução à Computação;EAMB002;30;1
+Geometria Analítica A;EAMB003 A;30;1
+Geometria Analítica B;EAMB003 B;25;1
+Laboratório de Química Ambiental 1;EAMB006;15;1
+Cálculo 2 A;EAMB008	A;15;2
+Cálculo 2 B;EAMB008	B;10;2
+Álgebra Linear;EAMB009;35;2
+DESENHO;EAMB010;30;2
+Física 1 A;EAMB011 A;15;2
+Física 1 B;EAMB011 B;20;2
+Laboratório de Física 1;EAMB012;20;2
+Química Ambiental 2;EAMB013;35;2
+Laboratório de Química Ambiental 2 A;EAMB014 A;15;2
+Laboratório de Química Ambiental 2 B;EAMB014 B;15;2
+Laboratório de Química Ambiental 2 C;EAMB014 C;15;2
+Cálculo 3 A;EAMB015 A;10;3
+Cálculo 3 B;EAMB015 B;10;3
+Estatística;EAMB016 A;20;3
+Física 2 A;EAMB017 A;10;3
+Física 2 B;EAMB017 B;10;3
+Cálculo Numérico;EAMB018 A;5;3
+Balanço de Massa e Energia;EAMB019	A;20;3
+Física 3;EAMB021;20;4
+Laboratório de Física 2;EAMB022;20;4
+Fenômenos de Transportes 1 A;EAMB023 A;10;4
+Fenômenos de Transportes 1 B;EAMB023 B;10;4
+Topografia 1;EAMB024;20;4
+Ecologia;EAMB025;25;4
+Geoprocessamento;EAMB026;20;4
+Mecânica e Resistência dos Materiais;EAMB027;25;4
+Ciência e Tecnologia dos Materiais;EAMB028;20;5
+Hidráulica;EAMB029 A;20;5
+Laboratório de Hidráulica A;EAMB030	A;7;5
+Laboratório de Hidráulica B;EAMB030	B;3;5
+Laboratório de Hidráulica C;EAMB030	C;3;5
+Fenômenos de Transportes 2 A;EAMB031 A;20;5
+Fenômenos de Transportes 2 B;EAMB031 B;10;5
+Hidrologia;EAMB032;15;5
+Geologia Ambiental;EAMB033;20;5
+Laboratório de Geologia Ambiental;EAMB034 A;15;5
+Mecânica dos solos;EAMB035;15;6
+Laboratório de solos;EAMB036;15;6
+Saúde Ambiental;EAMB037	A;15;6
+Sistemas de Abastecimento de Águas;EAMB038;15;6
+Sistemas Estuarinos Costeiros;EAMB039;20;6
+Eletrotécnica;EAMB040;15;6
+Redes Coletoras de esgoto;EAMB041;15;6
+Planejamento e Gestão Ambiental;EAMB042;15;7
+Tratamento de Águas Residuárias 1;EAMB043;15;7
+Águas Subterrâneas;EAMB044;15;7
+Legislação Ambiental;EAMB047;15;7
+Poluição Atmosférica;EAMB048;15;8
+Resíduos Sólidos;EAMB049;15;8
+Tratamento de Águas Residuárias 2;EAMB050;15;8
+Avaliação de impactos ambientais 1;EAMB051;15;8
+Economia B;EAMB052 B;5;8
+Economia A;EAMB052 A;15;8
+Ética e Relações de Trabalho;EAMB053;20;8
+Tratamento de Efluentes Gasosos;EAMB056;15;9
+Políticas públicas aplicadas ao meio ambiente;EAMB057;15;9
+Avaliação de impactos ambientais 2;EAMB058;15;9
+Analise de Risco;EAMB059;20;9
+Engenharia de Segurança;EAMB068;15;9
+Adminstração A;EAMB069 A;10;9
+Adminstração B;EAMB069 B;10;9
+LIBRAS - Língua Brasileira de Sinais;EAMB061/LET071;5;0
+Equações diferenciais ordinárias;EAMB066;2;0
+Energia e Meio Ambiente;EAMB070	A;10;0
+Desenho 2 A;EAMB071	A;5;0
+Desenho 2 B;EAMB071	B;5;0
+Topografia 2 A;EAMB072 A;5;0
+Topografia 2 B;EAMB072 B;5;0
+Mecânica dos solos 2;EAMB073;10;0
+Laboratório de solos 2 A;EAMB075 A;3;0
+Laboratório de solos 2 B;EAMB075 B;3;0
+Estágio Supervisionado;EAMB076 A;40;0	
+Instalações hidráulicas e sanitárias;EAMB080;15;0
+Eficiência Energética;EAMB EE;5;0
+Sedimentologia e estratigrafia aplicada;EAMB Sed. estatigr;5;0
+Introdução a Engenharia do Petróleo;INT ENG PETROLEO;5;0
+Introdução às Vazões Ambientais;EAMB091;10;0
+Introdução à Ciência de Dados;EAMB C. DADOS;20;0
+Plano de Saneamento Básico;Plano de S. BÁSICO;10;0
+Biocombustíveis;Biocomb.;10;0

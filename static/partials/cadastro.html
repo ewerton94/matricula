@@ -1,0 +1,86 @@
+             
+
+     <div class="main">        
+                <h2>Cadastre-se no Sistema</h2> 
+              
+<form method="POST" class="form-horizontal" name="cadastro">
+            
+               
+               <ul>
+               <div ng-repeat="error in errors"><li style="color:red;" >{$error$}</li></div>
+                </ul>
+                
+                
+<div ng-if="situacao">
+  <h3>Dados Pessoais</h3>              
+<div class="form-group"><div class="col-sm-2 control-label">
+          <label for="nome">Nome
+</label></div><div class="col-sm-10" ><p>
+        <input class="form-control" id="id_nome" name="nome" type="text" required ng-model="dado.nome"/>
+</p></div></div>          
+                
+<div class="form-group"><div class="col-sm-2 control-label">
+          <label for="matricula">Matrícula
+</label></div><div class="col-sm-10" ><p>
+        <input class="form-control" id="id_matricula" name="matricula" type="text" required ng-model="dado.matricula" />
+</p></div></div>    
+               
+<div class="form-group"><div class="col-sm-2 control-label">
+          <label for="curso">Curso
+</label></div><div class="col-sm-10" ><p>
+        <select class="form-control" id="id_curso" name="curso" placeholder="Curso de Origem" ng-model="dado.curso" required>
+<option value="1">Engenharia Ambiental e Sanitária</option>
+</select>
+</p></div></div>       
+
+  <h3>Dados de acesso</h3>  
+<div class="form-group"><div class="col-sm-2 control-label">
+          <label for="email">E-mail (Servirá como login)
+</label></div><div class="col-sm-10" ><p>
+        <input type="email" class="form-control" id="id_email" name="email" type="text" required ng-model="dado.email"/>
+</p></div></div>          
+<div class="form-group"><div class="col-sm-2 control-label">
+          <label for="senha1">Senha
+</label></div><div class="col-sm-10" ><p>
+        <input class="form-control" type = password id="id_senha1" name="senha1" type="text" required ng-model="dado.senha1" />
+</p></div></div>          
+                
+<div class="form-group"><div class="col-sm-2 control-label">
+          <label for="senha2">Digite a senha novamente
+</label></div><div class="col-sm-10" ><p>
+        <input class="form-control" type = password  id="id_senha2" name="senha2" type="text" required ng-model="dado.senha2"/>
+</p></div></div>   
+               
+  
+                
+         
+
+
+
+
+
+
+
+
+
+     
+           
+        
+
+
+            
+                
+                
+     
+                <div align="right" >
+                    <p><button type="submit" ng-click="SendData()" class="botaosubmit">Enviar</button></p>
+                </div>    
+</div>
+                
+
+            </form>  
+            
+     
+           
+           
+</div>

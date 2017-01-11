@@ -1,0 +1,29 @@
+
+       <h3><br>Disciplinas a se matricular:</h3> 
+<h6>Veja a <a href="/matricula/static/Oferta_EAMB2016.2 v7.0 (1).xlsx">oferta acadêmica</a>.</h6>           
+        <form method="POST" class="" name="matricula">
+         
+              <ul>
+               <div ng-repeat="error in errors"><li style="color:red;" >{$error$}</li></div>
+                </ul>  
+
+                
+<h6 ng-repeat="disciplina in disciplinas"><label >
+ <input type="checkbox" data-checklist-model="disciplinas_escolhidas" data-checklist-value="disciplina.id"> {$disciplina.nome$}
+</label></h6>
+  
+
+                
+            
+     
+                <div align="right" ng-if="disciplinas_matriculadas.length">
+                   
+                    <p><button type="submit" ng-click="open()" class="btn btn-success">Enviar</button></p>
+                </div>
+                
+                <div align="right" ng-if="!disciplinas_matriculadas.length">
+                   
+                    <p><button type="submit" ng-click="SendData()" class="btn btn-success">Enviar</button></p>
+                </div>
+            </form>        
+           

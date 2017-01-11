@@ -1,0 +1,47 @@
+<!--
+               
+           
+            {% if user.is_authenticated %}
+            <div class="titulodescricaoinicio">Usuário Logado</div>
+            
+            <p>Você está logado como {{ user.username }}. Se você já fez sua inscrição e deseja alterá-la <b class="link"><a  href="">entre no sistema de inscrições</a></b>. Caso contrário, preencha o formulário abaixo.</p>
+            
+                   </div>
+            {% else %}-->
+                   
+            <h2>Entrar</h2>
+            
+<p>É necessário fazer login com e-mail e senha fornecidos no  cadastro.</p>
+       
+
+       
+        <form class="form-horizontal" role="form" method="post">
+        <ul>
+               <div ng-repeat="error in errors"><li style="color:red;" >{$error$}</li></div>
+                </ul>
+       
+  <div class="form-group">
+    <label for="id_username" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="id_username" name="username" ng-model="username" placeholder="E-mail" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="id_password" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="id_password" name="password" ng-model="password"  placeholder="Senha" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success" ng-click="SendData()" value="Login">Entrar</button>
+    </div>
+  </div>
+          
+</form>
+       <p>Não fez seu cadastro? <b class="link"><a  href="#!cadastro">Cadastre-se!</a></b></p>
+            
+              
+
+            
+              
