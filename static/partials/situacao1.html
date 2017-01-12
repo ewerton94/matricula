@@ -1,5 +1,5 @@
-
- <div ng-show="!disciplinas.length">   
+<div ng-show="periodo=='matricula'" >
+     <div ng-show="!disciplinas.length">   
 <h3>Situação</h3>
     <h6>Sem Disciplinas!</h6>
     <h6>Para se matricular em disciplinas acesse a <b class="link"><a  href="#!matricula">página de matrícula.</a></b></h6>  
@@ -99,3 +99,35 @@
 </table>
 </div>
 
+
+</div>
+</div>
+
+
+<div ng-show="periodo=='reajuste'" >
+  <div ng-show="tem_reajuste" >
+    <h3>Reajuste Realizado:</h3>
+   
+   <h4><button type="button" ng-click="remover_reajuste()" class="btn btn-danger btn-xs">Remover reajuste</button></h4>
+   <div ng-show="reajuste.retirar.length">
+       <h4>Disciplinas a Retirar</h4>
+   <ul ng-repeat="disciplina in reajuste.retirar">
+       <li><h6>{$disciplina.nome$}</h6></li>
+   </ul>
+      </div>
+   <h4>Disciplinas a Adicionar</h4>
+ 
+   <div ng-show="reajuste.adicionar.length">
+   <ul ng-repeat="disciplina in reajuste.adicionar">
+       <li><h6>{$disciplina.nome$}</h6></li>
+   </ul>
+   
+</div>
+    </div>
+   <div ng-show="!tem_reajuste" >
+   <h6>O período de reajuste está aberto, acesse a <b class="link"><a  href="#!reajuste">página de reajuste.</a></b></h6>
+    </div>
+  
+   
+    
+</div>

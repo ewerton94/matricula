@@ -23,6 +23,7 @@ urlpatterns = (
     url(r'^disciplinas_matriculadas$', disciplinas_matriculadas,name="disciplinas_matriculadas"),
     url(r'^horarios', horarios,name="horarios"),
     url(r'^nova', nova_matricula,name="nova_matricula"),
+    url(r'^reajuste', reajuste,name="rejuste"),
     url(r'^disciplinas_matriculadas/delete/(?P<disciplina_id>\d+)', deletar_disciplinas,name="deletar_disciplinas"),
     url(r'^get_usuario_logado', get_usuario_logado,name="get_usuario_logado"),
     url(r'^get_usuario_deslogado', get_usuario_deslogado,name="get_usuario_deslogado"),

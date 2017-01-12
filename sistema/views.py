@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from .forms import Form_Cadastro, Form_Matricula
-from .models import Curso, Disciplina, Aluno, Matricula,Oferta
+from .models import Curso, Disciplina, Aluno, Matricula,Oferta,Reajuste
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib import messages
 from django.conf import settings
@@ -355,6 +355,60 @@ def nova_matricula(request):
             #matricula = Matricula.objects.create(aluno=aluno,disciplinas=disciplinas_a_se_matricular)
             matricula.save()
             return Response("ok")
+        
+
+@api_view(['POST','DELETE','GET'])
+@login_required 
+def reajuste(request):
+    if request.method == 'POST':
+        solicitacao = request.data
+        aluno = Aluno.objects.get(usuario=request.user)
+        nome = aluno.nome.split()[0]
+        for d_id in solicitacao["adicionar"]:
+            disciplina = get_object_or_404(Disciplina, pk=d_id)
+            if disciplina.vagas<=len([1 for matricula in Reajuste.objects.all() if disciplina in matricula.disciplinas_a_adicionar.all()]):
+                ex=VagasEsgotadas()
+                ex.detail=ex.default_detail + " "+disciplina.nome + "!"
+                raise ex
+        reajuste=Reajuste.objects.filter(aluno=aluno)
+        reajuste.delete()
+        matricula=Reajuste()
+        matricula.aluno=aluno
+        matricula.save()
+        for disciplina_id in solicitacao["adicionar"]:
+            disciplina_a_se_matricular=get_object_or_404(Disciplina, pk=disciplina_id)
+            matricula.disciplinas_a_adicionar.add(disciplina_a_se_matricular)
+        for disciplina_id in solicitacao["retirar"]:
+            disciplina_a_se_matricular=get_object_or_404(Disciplina, pk=disciplina_id)
+            matricula.disciplinas_a_retirar.add(disciplina_a_se_matricular)
+            #matricula = Matricula.objects.create(aluno=aluno,disciplinas=disciplinas_a_se_matricular)
+        matricula.save()
+        return Response("ok")
+    if request.method == 'DELETE':
+        user=request.user
+        aluno = Aluno.objects.get(usuario=user)
+        reajuste=Reajuste.objects.filter(aluno=aluno)
+        reajuste.delete()
+        return Response("OK")
+        
+    if request.method == 'GET':
+        user=request.user
+        aluno = Aluno.objects.get(usuario=user)
+        reajuste=Reajuste.objects.filter(aluno=aluno)
+        
+        
+        if reajuste:
+            reajuste=reajuste[0]
+            ds = reajuste.disciplinas_a_adicionar.all()
+            serializer = DisciplinaSerializer(ds, many=True)
+            adicionar= serializer.data
+            ds = reajuste.disciplinas_a_retirar.all()
+            serializer = DisciplinaSerializer(ds, many=True)
+            retirar = serializer.data
+            
+            return Response({'adicionar':adicionar,'retirar':retirar})
+        return 'Sem reajuste'
+
         
 
 def situacao(request,**kwargs):

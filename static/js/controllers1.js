@@ -172,6 +172,72 @@ matriculaControllers.controller('MatriculaCtrl', ['$scope', '$http', '$location'
     }}]);
 
 
+matriculaControllers.controller('ReajusteCtrl', ['$scope', '$http', '$location','user','$window','$uibModal','urls','$timeout','situacao',
+    function ($scope, $http, $location,user,$window,$uibModal,urls,$timeout,situacao) {
+        $scope.periodo=situacao.periodo;
+        
+        var get_usuario = function () {
+        $scope.usuario={};
+            
+        $http.get(urls.base+'/matricula/get_usuario_logado').then(function (data) {
+            $scope.usuario=data.data;
+            
+            $timeout(get_usuario, 1000);
+            
+        }, function(data) {
+            $window.location.reload();
+            $window.location.href = urls.base+'/#!login/';
+            
+        })};
+            get_usuario();
+        
+        $scope.disciplinas=[]
+        $scope.retirar=[];
+        $scope.adicionar=[];
+        $http.get(urls.base+'/matricula/disciplinas').then(function (data) {
+            $scope.disciplinas=data.data;
+            
+        }, function(data) {
+            $scope.errors=[];
+        });
+        
+        
+        $scope.SendData = function () {
+            $scope.errors=[];
+            
+                
+            
+            var in_data = { adicionar: $scope.adicionar,retirar: $scope.retirar };
+            
+            $http.post(urls.base+'/matricula/reajuste', in_data)
+                .then(function(out_data) {
+                
+                $window.location.href = urls.base+'#!situacao';
+            }, function(data) {
+                $window.scrollTo(0, 0);
+                
+                $scope.errors.push("Formulário Inválido");
+            //some error
+            $scope.errors.push(data.data.detail);
+        });
+                     
+        };
+        $scope.open = function () {
+
+            var modalInstance =  $uibModal.open({
+              templateUrl: urls.base+'/static/partials/modal.html',
+              controller: 'ModalInstanceCtrl',
+              
+            });
+
+            modalInstance.result.then(function () {
+               $scope.SendData();
+            }, function () {
+              $log.info('Modal dismissed at: ' + new Date());
+            });
+    }}]);
+
+
 matriculaControllers.controller('LoginCtrl', ['$scope', '$http', '$location','user','$window','situacao','urls','$timeout','$q',
     function ($scope, $http, $location,user,$window,situacao,urls,$timeout,$q) {
         var get_usuario_deslogado = function () {
@@ -253,9 +319,11 @@ matriculaControllers.controller('HomeCtrl', ['$scope', '$http', '$location','use
 
 
 matriculaControllers.controller('SituacaoCtrl', ['$scope', '$http', '$location','user','$window','$uibModal','urls','ServeHorarios','$timeout',
-    function ($scope, $http, $location,user,$window,$uibModal,urls,ServeHorarios,$timeout) {
+                                                 'situacao',
+    function ($scope, $http, $location,user,$window,$uibModal,urls,ServeHorarios,$timeout,situacao) {
         
-            
+            $scope.periodo=situacao.periodo;
+        console.log($scope.periodo)
         var get_usuario = function () {
         $scope.usuario={};
             $scope.errors=[]
@@ -296,8 +364,27 @@ matriculaControllers.controller('SituacaoCtrl', ['$scope', '$http', '$location',
         }, function(data) {
             $scope.errors=[];
         })};
+        $scope.tem_reajuste=false;
+        var get_reajuste = function () {
+        $http.get(urls.base+'/matricula/reajuste').then(function (data) {
+            $scope.reajuste=data.data;
+            $scope.tem_reajuste=true;
+            $timeout(get_reajuste, 1000);
             
-        get_horarios();
+        }, function(data) {
+            $scope.errors=[];
+        })};
+        if ($scope.periodo == "matricula"){
+            get_horarios();
+        };
+        if ($scope.periodo == "reajuste"){
+            get_reajuste();
+        };
+        
+        
+        
+            
+        
         
             
         
@@ -341,7 +428,37 @@ matriculaControllers.controller('SituacaoCtrl', ['$scope', '$http', '$location',
               $log.info('Modal dismissed at: ' + new Date());
             });
 
-        }}]);
+        };
+        $scope.remover_reajuste = function () {
+
+            var modalInstance =  $uibModal.open({
+              templateUrl: urls.base+'/static/partials/modal_certeza.html',
+              controller: 'ModalInstanceCtrl',
+              
+            });
+
+            modalInstance.result.then(function () {
+                var in_data = {};
+                $http.delete(urls.base+'/matricula/reajuste', in_data)
+                .then(function(out_data) {
+                    
+                
+                $window.location.href = urls.base+'#!situacao';
+            }, function(data) {
+                $window.scrollTo(0, 0);
+                
+                $scope.errors.push("Formulário Inválido");
+            //some error
+            $scope.errors.push(data.data.detail);
+        });
+                
+                
+            }, function () {
+              $log.info('Modal dismissed at: ' + new Date());
+            });
+
+        }
+    }]);
 
 
 matriculaControllers.controller('ModalDemoCtrl', function ($scope,  $uibModal, $log,$window,urls) {

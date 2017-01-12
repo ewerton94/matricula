@@ -53,6 +53,24 @@ class Matricula(models.Model):
         l.extend(ds)
         return "".join(l)
     
+    
+class Reajuste(models.Model):
+    class Meta:
+        ordering = ['data']
+    id = models.AutoField(primary_key=True)
+    aluno = models.ForeignKey(Aluno)
+    data = models.DateTimeField(auto_now_add=True,verbose_name = 'Data da Matrícula')
+    disciplinas_a_retirar =models.ManyToManyField(Disciplina,related_name="disciplinas_a_retirar",blank=True)
+    disciplinas_a_adicionar =models.ManyToManyField(Disciplina,related_name="disciplinas_a_adicionar",blank=True)
+    def __str__(self): 
+        l = ["%s | %s | RETIRAR:"%(self.aluno.nome,self.aluno.n_matricula)]
+        ds = [" - %s"%d.codigo for d in self.disciplinas_a_retirar.all()]
+        l.extend(ds)
+        l.append(" || ADICIONAR:")
+        ds = [" - %s"%d.codigo for d in self.disciplinas_a_adicionar.all()]
+        l.extend(ds)
+        return "".join(l)
+    
 class Oferta(models.Model):
     horario = models.CharField(max_length=100)
     disciplinas = models.ManyToManyField(Disciplina)

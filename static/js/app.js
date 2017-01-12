@@ -31,6 +31,10 @@ MyApp.config(['$routeProvider','urls','$locationProvider',
                 templateUrl : urls.senha_reseta,
                 controller : 'ResetaSenhaCtrl'
             }).
+            when('/reajuste', {
+                templateUrl : urls.reajuste,
+                controller : 'ReajusteCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
             });

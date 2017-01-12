@@ -1,0 +1,29 @@
+<h2>Reajuste de matrícula</h2>
+      <h6>Veja a <a href="/matricula/static/Oferta_EAMB2016.2 v7.0 (1).xlsx">oferta acadêmica</a>.</h6>     
+
+      
+        <form method="POST" class="" name="matricula">
+         
+              <ul>
+               <div ng-repeat="error in errors"><li style="color:red;" >{$error$}</li></div>
+                </ul>  
+<div class="col-md-6">
+    <h3><br>Disciplinas a retirar:</h3>            
+<h6 ng-repeat="disciplina in disciplinas"><label >
+ <input type="checkbox" data-checklist-model="retirar" data-checklist-value="disciplina.id"> {$disciplina.nome$}
+</label></h6>
+</div>
+         
+            <div class="col-md-6">
+                <h3><br>Disciplinas a adicionar:</h3> 
+<h6 ng-repeat="disciplina in disciplinas"><label >
+ <input type="checkbox" data-checklist-model="adicionar" data-checklist-value="disciplina.id"> {$disciplina.nome$}
+</label></h6>
+            </div>   
+       
+  
+
+        
+                   
+                    <p><button type="submit" ng-click="SendData()" class="btn btn-success">Enviar</button></p>
+            </form> 

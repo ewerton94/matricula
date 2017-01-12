@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-BASE_URL_SITE='/matricula'
+BASE_URL_SITE=''
 URL_GERAL=BASE_URL_SITE
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -138,7 +138,7 @@ USE_TZ = True
 STATIC_URL = '%s/static/'%BASE_URL_SITE
 
 STATICFILES_DIRS = (
-    "/srv/www/ctec-pet-christopher/matricula/static/","/matricula-ng/static/"
+    "/srv/www/ctec-pet-christopher/matricula/static/","/matricula/static/"
 )
 
 LOGIN_URL = '%s/#!login/'%BASE_URL_SITE
@@ -160,5 +160,10 @@ REST_FRAMEWORK = {
     ],
 }
 
+from datetime import date
+if date.today() >= date(2017,1,12):
+    PERIODO = 'reajuste'
+else:
+    PERIODO = 'matricula'
 
 
